@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cashmask — Know the Game. Know the Risk.</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ===================== TOP NAV ===================== -->
+    <header class="topnav">
+        <div class="brand">
+            <span class="brand-icon">🛡️</span>
+            <div>
+                <div class="brand-name">CASHMASK</div>
+                <div class="brand-tag">Know the Game. Know the Risk.</div>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Taxonomy</a>
+            <a href="#">Games</a>
+            <a href="#">Research</a>
+            <a href="#">About</a>
+            <a href="#">Guidance</a>
+        </nav>
+        <div class="nav-right">
+            <input type="text" class="nav-search" placeholder="🔍 Search games..." />
+            <button class="btn-outline">⬇ Download Research Paper</button>
+        </div>
+    </header>
+
+    <div class="layout">
+
+        <!-- ===================== LEFT SIDEBAR ===================== -->
+        <aside class="sidebar">
+            <h4>TAXONOMY BROWSER</h4>
+            <ul class="sidebar-list">
+                <li class="active">🟢 Cash Realisability (Tiers)</li>
+                <li>🎮 Game Types</li>
+                <li>👥 Audience / Age Bands</li>
+                <li>🟠 Monetary Mechanics</li>
+                <li>⚠️ Harm Profile</li>
+                <li>🧑‍🤝‍🧑 Who is Harmed?</li>
+                <li>🛡️ Regulatory Status</li>
+                <li>💰 Financial Exposure</li>
+            </ul>
+
+            <h4>QUICK LINKS</h4>
+            <ul class="sidebar-list">
+                <li>🔍 Search Games</li>
+                <li>⚠️ High Risk Games</li>
+                <li>🟢 Newly Added</li>
+                <li>📊 Methodology</li>
+                <li>❓ FAQ</li>
+                <li>👪 Guidance for Parents</li>
+            </ul>
+
+            <div class="about-box">
+                <h4>About Cashmask</h4>
+                <p>Cashmask classifies online games that offer cash or cash-like rewards based on whether real money can
+                    actually be withdrawn and who is harmed.</p>
+                <a href="#">Learn more →</a>
+            </div>
+        </aside>
+
+        <!-- ===================== MAIN CONTENT ===================== -->
+        <main class="main-content">
+
+            <!-- Hero -->
+            <section class="hero">
+                <div class="hero-text">
+                    <h1>Understand the real risks behind online games.</h1>
+                    <p>Cashmask classifies games based on cash realisability, monetisation mechanics and the types of
+                        harm they may cause to different people.</p>
+                    <div class="hero-search">
+                        <input type="text" id="searchInput"
+                            placeholder="Search a game (e.g., Fortnite, Roblox, Coin Master...)" />
+                        <button id="searchBtn">Search</button>
+                    </div>
+                    <div class="popular-searches">
+                        Popular searches:
+                        <a href="#" class="popular-link">Fortnite</a>
+                        <a href="#" class="popular-link">Roblox</a>
+                        <a href="#" class="popular-link">Coin Master</a>
+                        <a href="#" class="popular-link">CS:GO Skins</a>
+                        <a href="#" class="popular-link">FIFA Ultimate Team</a>
+                    </div>
+                </div>
+                <div class="hero-illustration">🎮💰🔒</div>
+            </section>
+
+            <!-- Search results (hidden until a search happens) -->
+            <section id="results" class="results-section"></section>
+
+            <!-- Cash Realisability Tiers -->
+            <section class="tiers-section">
+                <h3>CASH REALISABILITY TIERS (Primary Axis) ⓘ</h3>
+                <div class="tier-grid">
+                    <div class="tier-card t0">
+                        <div class="tier-id">T0</div>
+                        <div class="tier-label">No Paid Element</div>
+                    </div>
+                    <div class="tier-card t1">
+                        <div class="tier-id">T1</div>
+                        <div class="tier-label">Closed-loop Paid Reward</div>
+                    </div>
+                    <div class="tier-card t2">
+                        <div class="tier-id">T2</div>
+                        <div class="tier-label">Paid Random Draw</div>
+                    </div>
+                    <div class="tier-card t3">
+                        <div class="tier-id">T3</div>
+                        <div class="tier-label">Grey-market Convertible</div>
+                    </div>
+                    <div class="tier-card t4">
+                        <div class="tier-id">T4</div>
+                        <div class="tier-label">Token-mediated Cash-out</div>
+                    </div>
+                    <div class="tier-card t5">
+                        <div class="tier-id">T5</div>
+                        <div class="tier-label">Licensed Real-money Wagering</div>
+                    </div>
+                    <div class="tier-card t6">
+                        <div class="tier-id">T6</div>
+                        <div class="tier-label">Unlicensed / Offshore Real-money Wagering</div>
+                    </div>
+                </div>
+                <div class="tier-axis">
+                    <span>◀ No real money can be withdrawn</span>
+                    <span>Real money can be withdrawn ▶</span>
+                </div>
+            </section>
+
+            <!-- Explore by Harm Profile -->
+            <section class="harm-section">
+                <h3>Explore by Harm Profile</h3>
+                <div class="harm-grid">
+                    <div class="harm-card">
+                        <div class="harm-icon financial">💲</div>
+                        <h4>Financial Harm</h4>
+                        <p>Money loss, overspending, financial strain, hidden costs.</p>
+                        <a href="#">View games →</a>
+                    </div>
+                    <div class="harm-card">
+                        <div class="harm-icon addiction">🌀</div>
+                        <h4>Addiction / Behavioural Harm</h4>
+                        <p>Mechanisms that may drive compulsive behaviour and excessive play.</p>
+                        <a href="#">View games →</a>
+                    </div>
+                    <div class="harm-card">
+                        <div class="harm-icon psych">💡</div>
+                        <h4>Psychological Harm</h4>
+                        <p>Stress, anxiety, emotional distress, loss of well-being.</p>
+                        <a href="#">View games →</a>
+                    </div>
+                    <div class="harm-card">
+                        <div class="harm-icon privacy">🔒</div>
+                        <h4>Privacy / Data Harm</h4>
+                        <p>Data collection, profiling, tracking and privacy risks.</p>
+                        <a href="#">View games →</a>
+                    </div>
+                    <div class="harm-card">
+                        <div class="harm-icon exploit">🛡️</div>
+                        <h4>Consumer / Exploitation Harm</h4>
+                        <p>Dark patterns, misleading practices, unfair monetisation.</p>
+                        <a href="#">View games →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recently Added Games Table -->
+            <section class="table-section">
+                <div class="table-header">
+                    <h3>Recently Added / Updated Games</h3>
+                    <a href="#">View all games →</a>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Game</th>
+                            <th>Game Type</th>
+                            <th>Cash Tier</th>
+                            <th>Financial Exposure</th>
+                            <th>Primary Audience</th>
+                            <th>Risk Indicator</th>
+                            <th>Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gamesTableBody">
+                        <!-- filled by script.js -->
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+
+        <!-- ===================== CHATBOT SIDEBAR ===================== -->
+        <aside class="chat-panel">
+            <div class="chat-header">
+                <span class="brand-icon">🛡️</span>
+                <div>
+                    <div class="chat-title">Cashmask Assistant</div>
+                    <div class="chat-status">● Online</div>
+                </div>
+                <button class="chat-close">×</button>
+            </div>
+
+            <div class="chat-intro">
+                Hi! I can help you understand game classifications, risks and provide guidance. Ask me anything about a
+                game.
+            </div>
+
+            <div id="chatLog" class="chat-log"></div>
+
+            <div class="chat-suggestions">
+                <button class="suggestion-btn">Which games are T6?</button>
+                <button class="suggestion-btn">What are loot boxes?</button>
+                <button class="suggestion-btn">How do you determine risk?</button>
+                <button class="suggestion-btn">Guidance for parents</button>
+            </div>
+
+            <div class="chat-input-row">
+                <input type="text" id="chatInput" placeholder="Ask a question..." />
+                <button id="chatSendBtn">➤</button>
+            </div>
+            <p class="chat-disclaimer">Cashmask Assistant can make mistakes. Verify information from sources.</p>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2026 Cashmask Project | Edith Cowan University</p>
+        <div class="footer-links">
+            <a href="#">Methodology</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Contact</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
