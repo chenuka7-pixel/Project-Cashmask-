@@ -171,31 +171,7 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Recently Added Games Table -->
-            <section class="table-section">
-                <div class="table-header">
-                    <h3>Recently Added / Updated Games</h3>
-                    <a href="#">View all games →</a>
-                </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Game</th>
-                            <th>Game Type</th>
-                            <th>Cash Tier</th>
-                            <th>Financial Exposure</th>
-                            <th>Primary Audience</th>
-                            <th>Risk Indicator</th>
-                            <th>Updated</th>
-                        </tr>
-                    </thead>
-                    <tbody id="gamesTableBody">
-                        <!-- filled by script.js -->
-                    </tbody>
-                </table>
-            </section>
-
+          
         </main>
 
         <!-- ===================== CHATBOT SIDEBAR ===================== -->
