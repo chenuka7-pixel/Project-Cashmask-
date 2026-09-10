@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cashmask — Know the Game. Know the Risk.</title>
+    <meta name="description"
+        content="Cashmask classifies online games that offer cash or cash-like rewards based on whether real money can actually be withdrawn and who is harmed." />
+    <link rel="icon" type="image/png" href="cashmask.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ============================================================ -->
+    <!-- TOP NAV                                                      -->
+    <!-- ============================================================ -->
+    <header class="topnav">
+        <div class="container topnav-inner">
+            <a class="brand" href="#" aria-label="Cashmask home">
+                <img src="cashmask.png" alt="Cashmask — Know the Game. Know the Risk." class="brand-logo" />
+            </a>
+
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#" class="active">Home</a>
+                <a href="#">Taxonomy</a>
+                <a href="#">Games</a>
+                <a href="#">Research</a>
+                <a href="#">About</a>
+                <a href="#">Guidance</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="nav-search-box">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input type="text" class="nav-search" placeholder="Search games..." aria-label="Search games" />
+                </div>
+                <button class="btn btn-dark nav-download">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    <span>Download Research Paper</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout container">
+
+        <!-- ============================================================ -->
+        <!-- LEFT SIDEBAR — TAXONOMY BROWSER                              -->
+        <!-- ============================================================ -->
+        <aside class="sidebar">
+            <div class="sb-group">
+                <div class="sb-title">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                    Taxonomy browser
+                </div>
+                <ul class="sidebar-list">
+                    <li class="active">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                            <polyline points="2 17 12 22 22 17" />
+                            <polyline points="2 12 12 17 22 12" />
+                        </svg>
+                        Cash Realisability <span class="sb-note">Tiers</span>
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="6" y1="11" x2="10" y2="11" />
+                            <line x1="8" y1="9" x2="8" y2="13" />
+                            <line x1="15" y1="12" x2="15.01" y2="12" />
+                            <line x1="18" y1="10" x2="18.01" y2="10" />
+                            <path
+                                d="M17.32 5H6.68a4 4 0 0 0-3.98 3.6c-.35 3.09-.66 5.57-.75 6.9A4 4 0 0 0 5.92 19h.06a4 4 0 0 0 3.91-3.28l.11-.62a1 1 0 0 1 .98-.78h.06a1 1 0 0 1 .98.78l.11.62a4 4 0 0 0 6.9 1.65A4 4 0 0 0 8.5 6.7 4 4 0 0 0 5 9.1c-.9-.9-2.1-3.9-2.5-5.5A3 3 0 0 1 5.5 3c1 0 2 .4 2.8 1.1h.7" />
+                        </svg>
+                        Game Types
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        Audience / Age Bands
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="1" y="4" width="22" height="16" rx="2" />
+                            <line x1="1" y1="10" x2="23" y2="10" />
+                        </svg>
+                        Monetary Mechanics
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                        Harm Profile
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                        Who is Harmed?
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                            <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                            <path d="M7 21h10" />
+                            <path d="M12 3v18" />
+                            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+                        </svg>
+                        Regulatory Status
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="6" width="20" height="12" rx="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M6 12h.01M18 12h.01" />
+                        </svg>
+                        Financial Exposure
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sb-group">
+                <div class="sb-title">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    Explore
+                </div>
+                <ul class="sidebar-list">
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        Search Games
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path
+                                d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        High Risk Games
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        Newly Added
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                        </svg>
+                        Methodology
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                        FAQ
+                    </li>
+                    <li>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                        Guidance for Parents
+                    </li>
+                </ul>
+            </div>
+
+            <div class="about-box">
+                <div class="about-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                </div>
+                <h4>About Cashmask</h4>
+                <p>Cashmask classifies online games that offer cash or cash-like rewards based on whether real money can
+                    actually be withdrawn and who is harmed.</p>
+                <a href="#" class="view-link">
+                    <span>Learn more</span>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ============================================================ -->
+        <!-- MAIN CONTENT                                                 -->
+        <!-- ============================================================ -->
+        <main class="main-content">
+
+            <!-- Hero -->
+            <section class="hero">
+                <div class="hero-text">
+                    <p class="hero-eyebrow">Independent classification of online games</p>
+                    <h1>Understand the real risks behind online games.</h1>
+                    <p class="hero-sub">Cashmask classifies games based on cash realisability, monetisation mechanics
+                        and the types of harm they may cause to different people.</p>
+
+                    <div class="hero-search">
+                        <svg class="icon search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="searchInput"
+                            placeholder="Search a game (e.g., Fortnite, Roblox, Coin Master...)" />
+                        <button id="searchBtn">Search</button>
+                    </div>
+
+                    <div class="popular-searches">
+                        Popular searches:
+                        <a href="#" class="popular-link chip">Fortnite</a>
+                        <a href="#" class="popular-link chip">Roblox</a>
+                        <a href="#" class="popular-link chip">Coin Master</a>
+                        <a href="#" class="popular-link chip">CS:GO Skins</a>
+                        <a href="#" class="popular-link chip">FIFA Ultimate Team</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="spectrum-card">
+                        <div class="spectrum-head">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                                <polyline points="2 17 12 22 22 17" />
+                                <polyline points="2 12 12 17 22 12" />
+                            </svg>
+                            Cash Realisability Scale
+                        </div>
+                        <div class="spectrum-list">
+                            <div class="spectrum-row"><span class="sp-dot sp-0"></span><span
+                                    class="sp-tag">T0</span><span class="sp-name">No cash-out pathway</span></div>
+                            <div class="spectrum-row"><span class="sp-dot sp-1"></span><span
+                                    class="sp-tag">T1</span><span class="sp-name">Closed-loop rewards</span></div>
+                            <div class="spectrum-row"><span class="sp-dot sp-2"></span><span
+                                    class="sp-tag">T2</span><span class="sp-name">Paid random draws</span></div>
+                            <div class="spectrum-row"><span class="sp-dot sp-3"></span><span
+                                    class="sp-tag">T3</span><span class="sp-name">Grey-market conversion</span></div>
+                            <div class="spectrum-row"><span class="sp-dot sp-4"></span><span
+                                    class="sp-tag">T4</span><span class="sp-name">Token cash-out</span></div>
+                            <div class="spectrum-row"><span class="sp-dot sp-5"></span><span
+                                    class="sp-tag">T5</span><span class="sp-name">Licensed wagering</span></div>
+                            <div class="spectrum-row"><span class="sp-dot sp-6"></span><span
+                                    class="sp-tag">T6</span><span class="sp-name">Unlicensed wagering</span></div>
+                        </div>
+                        <div class="spectrum-foot">
+                            <span>Low risk</span>
+                            <span>High risk</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search results (hidden until a search happens) -->
+            <section id="results" class="results-section"></section>
+
+            <!-- Cash Realisability Tiers -->
+            <section class="tiers-section section">
+                <div class="section-head">
+                    <div>
+                        <p class="section-eyebrow">Primary axis</p>
+                        <h2>Cash Realisability Tiers
+                            <span class="info-pill" title="The central dimension of the Cashmask taxonomy.">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <line x1="12" y1="16" x2="12" y2="12" />
+                                    <line x1="12" y1="8" x2="12.01" y2="8" />
+                                </svg>
+                            </span>
+                        </h2>
+                    </div>
+                    <p class="section-sub">How far a game takes a player along the path from spending money to
+                        withdrawing real money.</p>
+                </div>
+
+                <div class="tier-grid">
+                    <div class="tier-card t0">
+                        <div class="tier-id">T0</div>
+                        <div class="tier-label">No Paid Element</div>
+                        <span class="tier-tag tag-safe">Lowest risk</span>
+                    </div>
+                    <div class="tier-card t1">
+                        <div class="tier-id">T1</div>
+                        <div class="tier-label">Closed-loop Paid Reward</div>
+                    </div>
+                    <div class="tier-card t2">
+                        <div class="tier-id">T2</div>
+                        <div class="tier-label">Paid Random Draw</div>
+                    </div>
+                    <div class="tier-card t3">
+                        <div class="tier-id">T3</div>
+                        <div class="tier-label">Grey-market Convertible</div>
+                    </div>
+                    <div class="tier-card t4">
+                        <div class="tier-id">T4</div>
+                        <div class="tier-label">Token-mediated Cash-out</div>
+                    </div>
+                    <div class="tier-card t5">
+                        <div class="tier-id">T5</div>
+                        <div class="tier-label">Licensed Real-money Wagering</div>
+                    </div>
+                    <div class="tier-card t6">
+                        <div class="tier-id">T6</div>
+                        <div class="tier-label">Unlicensed / Offshore Real-money Wagering</div>
+                        <span class="tier-tag tag-risk">Highest risk</span>
+                    </div>
+                </div>
+
+                <div class="tier-axis">
+                    <span class="axis-caption">No real money can be withdrawn</span>
+                    <span class="axis-bar" aria-hidden="true"></span>
+                    <span class="axis-caption axis-end">Real money can be withdrawn</span>
+                </div>
+            </section>
+
+            <!-- Explore by Harm Profile -->
+            <section class="section">
+                <div class="section-head">
+                    <div>
+                        <p class="section-eyebrow">Who's affected</p>
+                        <h2>Explore by Harm Profile</h2>
+                    </div>
+                    <p class="section-sub">Every classified game is reviewed across five profiles of potential harm.</p>
+                </div>
+
+                <div class="harm-grid">
+                    <div class="harm-card">
+                        <div class="harm-icon financial" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
+                        <h4>Financial Harm</h4>
+                        <p>Money loss, overspending, financial strain, hidden costs.</p>
+                        <a href="#" class="view-link">
+                            <span>View games</span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="harm-card">
+                        <div class="harm-icon addiction" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12a9 9 0 1 1-2.64-6.36A9 9 0 0 1 21 12z" />
+                                <polyline points="12 8 12 12 15 14" />
+                            </svg>
+                        </div>
+                        <h4>Addiction / Behavioural Harm</h4>
+                        <p>Mechanisms that may drive compulsive behaviour and excessive play.</p>
+                        <a href="#" class="view-link">
+                            <span>View games</span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="harm-card">
+                        <div class="harm-icon psych" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18h6" />
+                                <path d="M10 22h4" />
+                                <path
+                                    d="M12 2a7 7 0 0 0-7 7c0 2.5 1.2 4.6 2.5 6 .5.6 1.3.9 2.2.9h4.6c.9 0 1.7-.3 2.2-.9 1.3-1.4 2.5-3.5 2.5-6a7 7 0 0 0-7-7z" />
+                            </svg>
+                        </div>
+                        <h4>Psychological Harm</h4>
+                        <p>Stress, anxiety, emotional distress, loss of well-being.</p>
+                        <a href="#" class="view-link">
+                            <span>View games</span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="harm-card">
+                        <div class="harm-icon privacy" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" />
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                        </div>
+                        <h4>Privacy / Data Harm</h4>
+                        <p>Data collection, profiling, tracking and privacy risks.</p>
+                        <a href="#" class="view-link">
+                            <span>View games</span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="harm-card">
+                        <div class="harm-icon exploit" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="12" />
+                                <line x1="12" y1="16" x2="12.01" y2="16" />
+                            </svg>
+                        </div>
+                        <h4>Consumer / Exploitation Harm</h4>
+                        <p>Dark patterns, misleading practices, unfair monetisation.</p>
+                        <a href="#" class="view-link">
+                            <span>View games</span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recently Added Games -->
+            <section class="table-section section">
+                <div class="section-head">
+                    <div>
+                        <p class="section-eyebrow">Live index</p>
+                        <h2>Recently Added / Updated Games</h2>
+                    </div>
+                    <a href="#" class="view-link">
+                        <span>View all games</span>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                            <polyline points="12 5 19 12 12 19" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="games-table">
+                        <thead>
+                            <tr>
+                                <th>Game</th>
+                                <th>Game Type</th>
+                                <th>Cash Tier</th>
+                                <th>Financial Exposure</th>
+                                <th>Primary Audience</th>
+                                <th>Risk Indicator</th>
+                                <th>Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gamesTableBody">
+                            <!-- filled by script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ============================================================ -->
+        <!-- CHATBOT SIDEBAR                                              -->
+        <!-- ============================================================ -->
+        <aside class="chat-panel">
+            <div class="chat-header">
+                <span class="chat-avatar" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                </span>
+                <div class="chat-id">
+                    <div class="chat-title">Cashmask Assistant</div>
+                    <div class="chat-status"><span class="status-dot"></span> Online</div>
+                </div>
+                <button class="chat-close" aria-label="Close assistant">✕</button>
+            </div>
+
+            <div class="chat-body">
+                <div class="chat-intro">
+                    Hi! I can help you understand game classifications, risks and provide guidance. Ask me anything
+                    about a game.
+                </div>
+
+                <div id="chatLog" class="chat-log"></div>
+
+                <div class="chat-suggestions">
+                    <button class="suggestion-btn">Which games are T6?</button>
+                    <button class="suggestion-btn">What are loot boxes?</button>
+                    <button class="suggestion-btn">How do you determine risk?</button>
+                    <button class="suggestion-btn">Guidance for parents</button>
+                </div>
+            </div>
+
+            <div class="chat-input-row">
+                <input type="text" id="chatInput" placeholder="Ask a question..." />
+                <button id="chatSendBtn" class="chat-send" aria-label="Send message">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <line x1="22" y1="2" x2="11" y2="13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                    </svg>
+                </button>
+            </div>
+            <p class="chat-disclaimer">Cashmask Assistant can make mistakes. Verify information from sources.</p>
+        </aside>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER                                                       -->
+    <!-- ============================================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="f-brand">
+                    <span class="f-logo"><img src="cashmask.png" alt="Cashmask" /></span>
+                    <p>An independent, research-led taxonomy for classifying online games on cash realisability,
+                        monetisation mechanics and the risk of harm.</p>
+                    <p class="f-ecu">A project of Edith Cowan University</p>
+                </div>
+                <div class="f-col">
+                    <h5>Explore</h5>
+                    <a href="#">Search Games</a>
+                    <a href="#">High Risk Games</a>
+                    <a href="#">Newly Added</a>
+                    <a href="#">Cash Realisability Tiers</a>
+                </div>
+                <div class="f-col">
+                    <h5>Research</h5>
+                    <a href="#">Methodology</a>
+                    <a href="#">Taxonomy</a>
+                    <a href="#">Research Paper</a>
+                    <a href="#">Sources &amp; Citations</a>
+                </div>
+                <div class="f-col">
+                    <h5>Support</h5>
+                    <a href="#">Guidance for Parents</a>
+                    <a href="#">About Cashmask</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Cashmask Project | Edith Cowan University</p>
+                <div class="footer-links">
+                    <a href="#">Methodology</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
