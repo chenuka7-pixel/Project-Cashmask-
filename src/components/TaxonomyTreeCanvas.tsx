@@ -26,7 +26,7 @@ interface TaxonomyTreeCanvasProps {
   onClearCategoryFilter?: () => void;
 }
 
-export const SIDEBAR_CATEGORY_FILTERS: Record<string, {
+const SIDEBAR_CATEGORY_FILTERS: Record<string, {
   title: string;
   badge: string;
   description: string;
