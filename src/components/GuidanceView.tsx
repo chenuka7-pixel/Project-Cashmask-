@@ -10,11 +10,36 @@ import {
   ChevronUp
 } from 'lucide-react';
 
-export const GuidanceView: React.FC = () => {
+interface GuidanceViewProps {
+  initialSection?: 'all' | 'screener' | 'parents' | 'faq';
+  onClearSection?: () => void;
+}
+
+export const GuidanceView: React.FC<GuidanceViewProps> = ({
+  initialSection = 'all',
+  onClearSection
+}) => {
   // Screener state
   const [screenerAnswers, setScreenerAnswers] = useState<Record<number, boolean>>({});
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [activePlatformTab, setActivePlatformTab] = useState<'apple' | 'google' | 'steam' | 'playstation' | 'xbox'>('apple');
+
+  const screenerRef = React.useRef<HTMLDivElement>(null);
+  const parentsRef = React.useRef<HTMLDivElement>(null);
+  const faqRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (initialSection === 'faq') {
+      setActiveFaq(0);
+      setTimeout(() => {
+        faqRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+    } else if (initialSection === 'parents') {
+      setTimeout(() => {
+        parentsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+    }
+  }, [initialSection]);
 
   const screenerQuestions = [
     {
@@ -229,8 +254,105 @@ export const GuidanceView: React.FC = () => {
         </p>
       </div>
 
+      {/* Active Section Filter Banner */}
+      {initialSection === 'faq' && (
+        <div style={{
+          background: '#eff6ff',
+          border: '1.5px solid #60a5fa',
+          borderRadius: '14px',
+          padding: '14px 20px',
+          marginBottom: '28px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '12px',
+          flexWrap: 'wrap'
+        }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ background: '#2563eb', color: '#ffffff', padding: '2px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800 }}>
+                FAQ VIEW
+              </span>
+              <strong style={{ color: '#1e40af', fontSize: '0.9rem' }}>
+                Frequently Asked Questions & Australian Regulations
+              </strong>
+            </div>
+            <p style={{ margin: '4px 0 0', fontSize: '0.775rem', color: '#1d4ed8' }}>
+              Scrolled to plain-English guidance on loot box legal definitions, secondary skin markets, and Australian law.
+            </p>
+          </div>
+          {onClearSection && (
+            <button
+              type="button"
+              onClick={onClearSection}
+              style={{
+                background: '#ffffff',
+                border: '1px solid #bfdbfe',
+                padding: '6px 14px',
+                borderRadius: '8px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                color: '#1e40af'
+              }}
+            >
+              Show Full Guidance Hub
+            </button>
+          )}
+        </div>
+      )}
+
+      {initialSection === 'parents' && (
+        <div style={{
+          background: '#ecfdf5',
+          border: '1.5px solid #34d399',
+          borderRadius: '14px',
+          padding: '14px 20px',
+          marginBottom: '28px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '12px',
+          flexWrap: 'wrap'
+        }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ background: '#059669', color: '#ffffff', padding: '2px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800 }}>
+                PARENTAL CONTROLS
+              </span>
+              <strong style={{ color: '#065f46', fontSize: '0.9rem' }}>
+                Guidance for Parents & Spending Lock Blueprints
+              </strong>
+            </div>
+            <p style={{ margin: '4px 0 0', fontSize: '0.775rem', color: '#047857' }}>
+              Scrolled to step-by-step lock blueprints for Apple iOS, Google Android, Steam, PS5, and Xbox.
+            </p>
+          </div>
+          {onClearSection && (
+            <button
+              type="button"
+              onClick={onClearSection}
+              style={{
+                background: '#ffffff',
+                border: '1px solid #a7f3d0',
+                padding: '6px 14px',
+                borderRadius: '8px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                color: '#065f46'
+              }}
+            >
+              Show Full Guidance Hub
+            </button>
+          )}
+        </div>
+      )}
+
       {/* SECTION 1: INTERACTIVE RISK CALCULATOR */}
-      <div style={{
+      <div 
+        ref={screenerRef}
+        style={{
         background: '#fbf8f2',
         border: '1px solid rgba(0, 0, 0, 0.08)',
         borderRadius: '18px',
@@ -485,7 +607,9 @@ export const GuidanceView: React.FC = () => {
       </div>
 
       {/* SECTION 3: STEP-BY-STEP PLATFORM PARENTAL CONTROLS */}
-      <div style={{
+      <div 
+        ref={parentsRef}
+        style={{
         background: '#ffffff',
         border: '1px solid rgba(0, 0, 0, 0.08)',
         borderRadius: '18px',
@@ -669,7 +793,7 @@ export const GuidanceView: React.FC = () => {
       </div>
 
       {/* SECTION 5: FREQUENTLY ASKED QUESTIONS */}
-      <div>
+      <div ref={faqRef}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
           <div style={{
             width: '32px',

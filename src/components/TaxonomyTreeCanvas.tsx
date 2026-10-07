@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef, useMemo, useEffect } from 'react';
 import { 
   TAXONOMY_CATEGORIES, 
   TaxonomyCategory, 
@@ -22,12 +22,82 @@ interface TaxonomyTreeCanvasProps {
   onSelectProfile: (profile: GameProfile) => void;
   onSelectCategory: (category: TaxonomyCategory) => void;
   profiles?: GameProfile[];
+  activeSidebarCategory?: string;
+  onClearCategoryFilter?: () => void;
 }
+
+export const SIDEBAR_CATEGORY_FILTERS: Record<string, {
+  title: string;
+  badge: string;
+  description: string;
+  upCols: number[];
+  downCols: number[];
+  panX: number;
+}> = {
+  'audience-age': {
+    title: 'Audience / Age Bands',
+    badge: 'Demographics',
+    description: 'Targeted demographic cohorts: Teenagers, Old People, and Adults subject to monetization mechanics.',
+    upCols: [0, 1, 2],
+    downCols: [],
+    panX: 50
+  },
+  'game-types': {
+    title: 'Game Types & Genres',
+    badge: 'Genres',
+    description: 'Game genres: First Person Shooters, Gacha, Mobile, Social Casino, Bingo, Pool, and Online Casinos.',
+    upCols: [5, 6, 11, 13, 14, 16, 17],
+    downCols: [1, 2, 13],
+    panX: -550
+  },
+  'monetary-mechanics': {
+    title: 'Monetary Mechanics',
+    badge: 'Financial Flow',
+    description: 'Extraction pathways: Microtransactions, Loot Boxes, Skin Gambling, Crypto, and Secondary Trading.',
+    upCols: [12, 13],
+    downCols: [4, 5, 16, 18],
+    panX: -450
+  },
+  'harm-profile': {
+    title: 'Harm Profile & Consequences',
+    badge: 'Harm Vectors',
+    description: 'Psychological and social harm outcomes: Depression, Social Isolation, and Financial hardship.',
+    upCols: [],
+    downCols: [6, 7, 12, 14],
+    panX: -650
+  },
+  'who-is-harmed': {
+    title: 'Who is Harmed?',
+    badge: 'Vulnerability Impact',
+    description: 'High-vulnerability populations: Underage youth, vulnerable seniors, and low-income households.',
+    upCols: [0, 1, 2],
+    downCols: [14, 15],
+    panX: 50
+  },
+  'regulatory-status': {
+    title: 'Regulatory Status',
+    badge: 'Compliance & ACMA',
+    description: 'Regulated Australian sportsbooks vs unlicensed offshore gambling sites subject to ACMA ISP blocking.',
+    upCols: [7, 8, 9, 10, 12],
+    downCols: [],
+    panX: -850
+  },
+  'financial-exposure': {
+    title: 'Financial Exposure & Wagering',
+    badge: 'Wagering Capital',
+    description: 'Distinguishing real-money betting and liquid assets from closed-loop digital entertainment.',
+    upCols: [],
+    downCols: [0, 1, 3, 4, 5],
+    panX: -350
+  }
+};
 
 export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({ 
   onSelectProfile,
   onSelectCategory,
-  profiles
+  profiles,
+  activeSidebarCategory,
+  onClearCategoryFilter
 }) => {
   const activeProfiles = profiles || RESEARCHED_PROFILES;
 
@@ -43,6 +113,18 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
   const [isDragging, setIsDragging] = useState(false);
   const dragStartRef = useRef({ clientX: 0, clientY: 0, panX: 0, panY: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const activeFilterInfo = useMemo(() => {
+    if (!activeSidebarCategory) return null;
+    return SIDEBAR_CATEGORY_FILTERS[activeSidebarCategory] || null;
+  }, [activeSidebarCategory]);
+
+  useEffect(() => {
+    if (activeFilterInfo) {
+      setPan({ x: activeFilterInfo.panX, y: 10 });
+      setScale(0.85);
+    }
+  }, [activeFilterInfo]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     // If clicking an interactive node, button, or input, do NOT drag
@@ -422,6 +504,62 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
         </div>
       )}
 
+      {/* Active Sidebar Category Filter Banner */}
+      {activeFilterInfo && (
+        <div style={{
+          background: isLight ? '#ecfdf5' : '#064e3b',
+          border: `1.5px solid ${isLight ? '#34d399' : '#059669'}`,
+          borderRadius: '12px',
+          padding: '12px 18px',
+          marginBottom: '14px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '12px',
+          flexWrap: 'wrap'
+        }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{
+                background: '#047857',
+                color: '#ffffff',
+                padding: '2px 8px',
+                borderRadius: '6px',
+                fontSize: '0.725rem',
+                fontWeight: 800
+              }}>
+                {activeFilterInfo.badge}
+              </span>
+              <strong style={{ fontSize: '0.9rem', color: isLight ? '#065f46' : '#a7f3d0' }}>
+                Active Filter: {activeFilterInfo.title}
+              </strong>
+            </div>
+            <p style={{ fontSize: '0.775rem', color: isLight ? '#047857' : '#6ee7b7', margin: '4px 0 0' }}>
+              {activeFilterInfo.description}
+            </p>
+          </div>
+          {onClearCategoryFilter && (
+            <button
+              type="button"
+              onClick={onClearCategoryFilter}
+              style={{
+                background: isLight ? '#ffffff' : '#0f172a',
+                border: '1px solid #cbd5e1',
+                padding: '6px 14px',
+                borderRadius: '8px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                color: isLight ? '#0f172a' : '#f8fafc',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              Show Full Blueprint
+            </button>
+          )}
+        </div>
+      )}
+
       {/* Main Viewport Container */}
       <div
         ref={containerRef}
@@ -696,8 +834,17 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
               col.games.some((g) => g.toLowerCase().includes(searchTerm.toLowerCase().trim()))
             );
 
+            const isAxisMatch = activeFilterInfo ? activeFilterInfo.upCols.includes(idx) : false;
+            const isDimmed = activeFilterInfo ? !isAxisMatch : (searchTerm.trim() ? !isMatch : false);
+
             return (
-              <div key={`up-col-${idx}`}>
+              <div 
+                key={`up-col-${idx}`}
+                style={{
+                  opacity: isDimmed ? 0.28 : 1,
+                  transition: 'opacity 0.2s ease'
+                }}
+              >
                 {/* Category Interactive Node Box */}
                 <div 
                   className="interactive-node"
@@ -709,11 +856,15 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
                     position: 'absolute',
                     left: `${cx}px`,
                     top: `${axisY - 120}px`,
-                    transform: 'translateX(-50%)',
+                    transform: isAxisMatch ? 'translateX(-50%) scale(1.08)' : 'translateX(-50%)',
                     textAlign: 'center',
                     fontSize: '0.8rem',
                     fontWeight: 700,
-                    color: isMatch ? '#093326' : textColor,
+                    color: isAxisMatch
+                      ? (isLight ? '#065f46' : '#6ee7b7')
+                      : isMatch
+                      ? '#093326'
+                      : textColor,
                     whiteSpace: 'pre-line',
                     lineHeight: 1.2,
                     minWidth: '110px',
@@ -721,15 +872,21 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
                     cursor: 'pointer',
                     padding: '6px 8px',
                     borderRadius: '10px',
-                    background: isMatch
+                    background: isAxisMatch
+                      ? (isLight ? '#ecfdf5' : '#064e3b')
+                      : isMatch
                       ? '#fde68a'
                       : isLight
                       ? '#ffffff'
                       : '#1e293b',
-                    border: isMatch
+                    border: isAxisMatch
+                      ? '2px solid #059669'
+                      : isMatch
                       ? '2px solid #f59e0b'
                       : `1px solid ${isLight ? '#cbd5e1' : '#374151'}`,
-                    boxShadow: isMatch
+                    boxShadow: isAxisMatch
+                      ? '0 0 16px rgba(5, 150, 105, 0.45)'
+                      : isMatch
                       ? '0 0 14px rgba(245, 158, 11, 0.6)'
                       : isLight
                       ? '0 2px 6px rgba(0,0,0,0.04)'
@@ -870,8 +1027,17 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
               col.games.some((g) => g.toLowerCase().includes(searchTerm.toLowerCase().trim()))
             );
 
+            const isAxisMatch = activeFilterInfo ? activeFilterInfo.downCols.includes(idx) : false;
+            const isDimmed = activeFilterInfo ? !isAxisMatch : (searchTerm.trim() ? !isMatch : false);
+
             return (
-              <div key={`down-col-${idx}`}>
+              <div 
+                key={`down-col-${idx}`}
+                style={{
+                  opacity: isDimmed ? 0.28 : 1,
+                  transition: 'opacity 0.2s ease'
+                }}
+              >
                 {/* Category Interactive Node Box */}
                 <div 
                   className="interactive-node"
@@ -883,11 +1049,15 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
                     position: 'absolute',
                     left: `${cx}px`,
                     top: `${axisY + 180}px`,
-                    transform: 'translateX(-50%)',
+                    transform: isAxisMatch ? 'translateX(-50%) scale(1.08)' : 'translateX(-50%)',
                     textAlign: 'center',
                     fontSize: '0.8rem',
                     fontWeight: 700,
-                    color: isMatch ? '#093326' : textColor,
+                    color: isAxisMatch
+                      ? (isLight ? '#065f46' : '#6ee7b7')
+                      : isMatch
+                      ? '#093326'
+                      : textColor,
                     whiteSpace: 'pre-line',
                     lineHeight: 1.2,
                     minWidth: '110px',
@@ -895,15 +1065,21 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
                     cursor: 'pointer',
                     padding: '6px 8px',
                     borderRadius: '10px',
-                    background: isMatch
+                    background: isAxisMatch
+                      ? (isLight ? '#ecfdf5' : '#064e3b')
+                      : isMatch
                       ? '#fde68a'
                       : isLight
                       ? '#ffffff'
                       : '#1e293b',
-                    border: isMatch
+                    border: isAxisMatch
+                      ? '2px solid #059669'
+                      : isMatch
                       ? '2px solid #f59e0b'
                       : `1px solid ${isLight ? '#cbd5e1' : '#374151'}`,
-                    boxShadow: isMatch
+                    boxShadow: isAxisMatch
+                      ? '0 0 16px rgba(5, 150, 105, 0.45)'
+                      : isMatch
                       ? '0 0 14px rgba(245, 158, 11, 0.6)'
                       : isLight
                       ? '0 2px 6px rgba(0,0,0,0.04)'

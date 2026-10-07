@@ -7,7 +7,15 @@ import {
 } from 'lucide-react';
 import { TIER_DEFINITIONS } from '../data/taxonomyData';
 
-export const ResearchView: React.FC = () => {
+interface ResearchViewProps {
+  activeSection?: string;
+  onClearSection?: () => void;
+}
+
+export const ResearchView: React.FC<ResearchViewProps> = ({
+  activeSection,
+  onClearSection
+}) => {
   const [selectedTierDetail, setSelectedTierDetail] = useState<string>('T2');
 
   const handleDownloadPaper = () => {
@@ -124,6 +132,54 @@ export const ResearchView: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Active Methodology Banner */}
+      {activeSection === 'explore-methodology' && (
+        <div style={{
+          background: '#ecfdf5',
+          border: '1.5px solid #34d399',
+          borderRadius: '14px',
+          padding: '14px 20px',
+          marginBottom: '28px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: '12px',
+          flexWrap: 'wrap'
+        }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ background: '#059669', color: '#ffffff', padding: '2px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800 }}>
+                METHODOLOGY ACTIVE
+              </span>
+              <strong style={{ color: '#065f46', fontSize: '0.9rem' }}>
+                Academic Methodology & Theoretical Framework
+              </strong>
+            </div>
+            <p style={{ margin: '4px 0 0', fontSize: '0.775rem', color: '#047857' }}>
+              Displaying the Content vs. Convertibility thesis, T0–T6 continuum taxonomy, and peer-reviewed academic literature.
+            </p>
+          </div>
+          {onClearSection && (
+            <button
+              type="button"
+              onClick={onClearSection}
+              style={{
+                background: '#ffffff',
+                border: '1px solid #a7f3d0',
+                padding: '6px 14px',
+                borderRadius: '8px',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                color: '#065f46'
+              }}
+            >
+              Reset View
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Section 1: The Core Scientific Thesis */}
       <div style={{ marginBottom: '40px' }}>

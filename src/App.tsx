@@ -130,7 +130,20 @@ export const App: React.FC = () => {
       {/* Top Main Navbar */}
       <CashmaskNavbar
         activeNav={activeNav}
-        setActiveNav={setActiveNav}
+        setActiveNav={(nav) => {
+          setActiveNav(nav);
+          if (nav === 'Home') {
+            setSelectedSidebarCat('cash-realisability');
+          } else if (nav === 'Taxonomy') {
+            if (selectedSidebarCat.startsWith('explore-') || selectedSidebarCat === 'cash-realisability') {
+              setSelectedSidebarCat('');
+            }
+          } else if (nav === 'Games') {
+            if (selectedSidebarCat && !selectedSidebarCat.startsWith('explore-')) {
+              setSelectedSidebarCat('');
+            }
+          }
+        }}
         searchQuery={searchQuery}
         setSearchQuery={(q) => {
           setSearchQuery(q);
@@ -166,6 +179,12 @@ export const App: React.FC = () => {
                 setActiveNav('Research');
               } else if (catId === 'explore-high-risk') {
                 setSelectedTier('T6');
+                setActiveNav('Games');
+              } else if (catId === 'explore-search') {
+                setSelectedTier(null);
+                setActiveNav('Games');
+              } else if (catId === 'explore-new') {
+                setSelectedTier(null);
                 setActiveNav('Games');
               } else {
                 setActiveNav('Games');
@@ -209,6 +228,8 @@ export const App: React.FC = () => {
                 onSelectProfile={(p) => setSelectedProfile(p)}
                 onSelectCategory={(cat) => setInspectingCategory(cat)}
                 profiles={profiles}
+                activeSidebarCategory={selectedSidebarCat}
+                onClearCategoryFilter={() => setSelectedSidebarCat('')}
               />
             </div>
           )}
@@ -221,6 +242,11 @@ export const App: React.FC = () => {
                 filterTier={selectedTier}
                 searchFilter={searchQuery}
                 profiles={profiles}
+                activeCategoryFilter={selectedSidebarCat}
+                onClearCategoryFilter={() => {
+                  setSelectedSidebarCat('');
+                  setSelectedTier(null);
+                }}
               />
             </div>
           )}
@@ -235,7 +261,10 @@ export const App: React.FC = () => {
 
           {activeNav === 'Research' && (
             <div>
-              <ResearchView />
+              <ResearchView
+                activeSection={selectedSidebarCat}
+                onClearSection={() => setSelectedSidebarCat('')}
+              />
             </div>
           )}
 
@@ -247,7 +276,16 @@ export const App: React.FC = () => {
 
           {activeNav === 'Guidance' && (
             <div>
-              <GuidanceView />
+              <GuidanceView
+                initialSection={
+                  selectedSidebarCat === 'explore-faq'
+                    ? 'faq'
+                    : selectedSidebarCat === 'explore-parents'
+                    ? 'parents'
+                    : 'all'
+                }
+                onClearSection={() => setSelectedSidebarCat('')}
+              />
             </div>
           )}
         </main>
