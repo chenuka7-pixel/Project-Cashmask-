@@ -62,7 +62,7 @@ export const CashRealisabilityTiers: React.FC<CashRealisabilityTiersProps> = ({
     {
       code: 'T6',
       title: 'Unlicensed / Offshore Real-money Wagering',
-      bottomLabel: null,
+      bottomLabel: 'HIGHEST RISK',
       color: '#991b1b',
       stripeColor: '#b91c1c',
       bgColor: '#ffffff'
@@ -160,13 +160,13 @@ export const CashRealisabilityTiers: React.FC<CashRealisabilityTiersProps> = ({
                 </div>
               </div>
 
-              {/* Bottom tag for T0 */}
+              {/* Bottom tag for T0 / T6 */}
               {t.bottomLabel ? (
                 <div style={{
                   fontSize: '0.625rem',
                   fontWeight: 800,
-                  color: '#059669',
-                  background: '#d1fae5',
+                  color: t.code === 'T6' ? '#991b1b' : '#059669',
+                  background: t.code === 'T6' ? '#fee2e2' : '#d1fae5',
                   padding: '2px 0',
                   borderRadius: '4px',
                   letterSpacing: '0.04em',
@@ -180,6 +180,56 @@ export const CashRealisabilityTiers: React.FC<CashRealisabilityTiersProps> = ({
             </div>
           );
         })}
+      </div>
+
+      {/* Convertibility Continuum Gradient Bar (from new renderings) */}
+      <div style={{
+        marginTop: '18px',
+        paddingTop: '16px',
+        borderTop: '1px solid rgba(0, 0, 0, 0.05)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '16px',
+        fontSize: '0.775rem',
+        color: '#4b5563',
+        fontWeight: 600
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: '220px' }}>
+          <span style={{
+            background: '#ecfdf5',
+            color: '#059669',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            fontSize: '0.675rem',
+            fontWeight: 800
+          }}>
+            T0–T1
+          </span>
+          <span>No real money can be withdrawn</span>
+        </div>
+
+        <div style={{
+          flex: 1,
+          height: '6px',
+          borderRadius: '999px',
+          background: 'linear-gradient(90deg, #059669 0%, #10b981 20%, #eab308 50%, #f97316 75%, #991b1b 100%)',
+          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+        }} />
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'flex-end', minWidth: '220px' }}>
+          <span>Real money can be withdrawn</span>
+          <span style={{
+            background: '#fef2f2',
+            color: '#991b1b',
+            padding: '2px 6px',
+            borderRadius: '4px',
+            fontSize: '0.675rem',
+            fontWeight: 800
+          }}>
+            T5–T6
+          </span>
+        </div>
       </div>
     </div>
   );

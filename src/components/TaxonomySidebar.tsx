@@ -13,17 +13,20 @@ import {
   Clock, 
   BookOpen, 
   HelpCircle, 
-  ShieldCheck 
+  ShieldCheck,
+  ArrowRight
 } from 'lucide-react';
 
 interface TaxonomySidebarProps {
   selectedCategory: string;
   onSelectCategory: (catId: string) => void;
+  onLearnMore?: () => void;
 }
 
 export const TaxonomySidebar: React.FC<TaxonomySidebarProps> = ({
   selectedCategory,
-  onSelectCategory
+  onSelectCategory,
+  onLearnMore
 }) => {
   const browserItems = [
     { id: 'cash-realisability', label: 'Cash Realisability', icon: Layers, badge: 'Tiers' },
@@ -176,7 +179,57 @@ export const TaxonomySidebar: React.FC<TaxonomySidebarProps> = ({
         </div>
       </div>
 
-      {/* SECTION 3: BOTTOM SAFE PLAY & ETHICS CARD */}
+      {/* SECTION 3: ABOUT CASHMASK OVERVIEW CARD (from new renderings) */}
+      <div style={{
+        marginTop: '20px',
+        background: 'linear-gradient(135deg, #093326 0%, #06231a 100%)',
+        borderRadius: '16px',
+        padding: '16px 14px',
+        color: '#ffffff',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        boxShadow: '0 4px 14px rgba(9, 51, 38, 0.25)'
+      }}>
+        <div style={{
+          width: '28px',
+          height: '28px',
+          borderRadius: '8px',
+          background: 'rgba(255, 255, 255, 0.12)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginBottom: '10px'
+        }}>
+          <ShieldCheck size={16} color="#6ee7b7" />
+        </div>
+        <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#ffffff', marginBottom: '6px' }}>
+          About Cashmask
+        </div>
+        <p style={{ fontSize: '0.725rem', color: '#d1fae5', lineHeight: 1.45, margin: '0 0 10px' }}>
+          Cashmask classifies online games that offer cash or cash-like rewards based on whether real money can actually be withdrawn and who is harmed.
+        </p>
+        {onLearnMore && (
+          <button
+            onClick={onLearnMore}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#34d399',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              padding: 0,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}
+          >
+            <span>Learn more</span>
+            <ArrowRight size={12} />
+          </button>
+        )}
+      </div>
+
+      {/* SECTION 4: BOTTOM SAFE PLAY HELPLINE CARD */}
       <div style={{
         marginTop: '18px',
         background: 'linear-gradient(135deg, #093326 0%, #06281e 100%)',

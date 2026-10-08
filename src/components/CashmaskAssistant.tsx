@@ -241,18 +241,45 @@ export const CashmaskAssistant: React.FC<CashmaskAssistantProps> = ({
           </div>
         )}
 
-        {/* Prompt Chips in chat (Shown only when 1 or few messages) */}
+        {/* Prompt Chips (Always accessible above input when conversation has 1-2 messages) */}
         {messages.length <= 2 && !loading && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px' }}>
-            {promptChips.map((chip, idx) => (
-              <button
-                key={idx}
-                onClick={() => handleSend(chip)}
-                className="chat-chip"
-              >
-                {chip}
-              </button>
-            ))}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '10px' }}>
+            <div style={{ fontSize: '0.675rem', fontWeight: 700, color: '#9ca3af', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              Suggested Inquiries:
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+              {promptChips.map((chip, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleSend(chip)}
+                  style={{
+                    background: '#ffffff',
+                    border: '1px solid #bfdbfe',
+                    color: '#1d4ed8',
+                    padding: '5px 12px',
+                    borderRadius: '999px',
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    transition: 'all 0.15s ease',
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.02)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#eff6ff';
+                    e.currentTarget.style.borderColor = '#93c5fd';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#ffffff';
+                    e.currentTarget.style.borderColor = '#bfdbfe';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  {chip}
+                </button>
+              ))}
+            </div>
           </div>
         )}
 

@@ -13,6 +13,9 @@ import { AdminPanel } from './components/AdminPanel';
 import { ResearchView } from './components/ResearchView';
 import { AboutView } from './components/AboutView';
 import { GuidanceView } from './components/GuidanceView';
+import { HarmProfileExplorer } from './components/HarmProfileExplorer';
+import { RecentlyClassifiedTable } from './components/RecentlyClassifiedTable';
+import { CashmaskFooter } from './components/CashmaskFooter';
 import { GameProfile, TaxonomyCategory } from './data/taxonomyData';
 import { dossierStore } from './utils/dossierStore';
 import { PhoneCall, ShieldCheck, Settings } from 'lucide-react';
@@ -193,6 +196,7 @@ export const App: React.FC = () => {
               setActiveNav('Taxonomy');
             }
           }}
+          onLearnMore={() => setActiveNav('About')}
         />
 
         {/* MIDDLE COLUMN: HERO, TIERS & CONTENT */}
@@ -205,10 +209,28 @@ export const App: React.FC = () => {
                 onSelectTier={handleSelectTier}
               />
 
-              {/* Primary Axis: Cash Realisability Tiers */}
+              {/* Primary Axis: Cash Realisability Tiers with Gradient Bar */}
               <CashRealisabilityTiers
                 selectedTier={selectedTier}
                 onSelectTier={handleSelectTier}
+              />
+
+              {/* Explore by Harm Profile (from new renderings) */}
+              <HarmProfileExplorer
+                onSelectHarmProfile={(_harmType) => {
+                  setSelectedSidebarCat('harm-profile');
+                  setActiveNav('Taxonomy');
+                }}
+              />
+
+              {/* Recently Added / Updated Games Live Index (from new renderings) */}
+              <RecentlyClassifiedTable
+                profiles={profiles}
+                onSelectProfile={(p) => setSelectedProfile(p)}
+                onViewAllGames={() => {
+                  setSelectedSidebarCat('');
+                  setActiveNav('Games');
+                }}
               />
             </div>
           )}
@@ -296,6 +318,27 @@ export const App: React.FC = () => {
           onClearInitialQuery={() => setAssistantInitialProfile(null)}
         />
       </div>
+
+      {/* Institutional Research Footer (from new renderings) */}
+      <CashmaskFooter
+        onNavigate={setActiveNav}
+        onSelectSidebarCategory={(catId) => {
+          setSelectedSidebarCat(catId);
+          if (catId === 'cash-realisability') {
+            setActiveNav('Home');
+          } else if (catId === 'explore-faq' || catId === 'explore-parents') {
+            setActiveNav('Guidance');
+          } else if (catId === 'explore-methodology') {
+            setActiveNav('Research');
+          } else if (catId === 'explore-high-risk' || catId === 'explore-new' || catId === 'explore-search') {
+            setActiveNav('Games');
+          } else {
+            setActiveNav('Taxonomy');
+          }
+        }}
+        onOpenEthicsModal={() => setIsEthicsModalOpen(true)}
+        onDownloadPaper={handleDownloadPaper}
+      />
 
       {/* Academic Dossier Slide-Over Drawer */}
       <DossierDrawer
