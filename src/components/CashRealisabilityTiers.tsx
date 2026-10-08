@@ -14,7 +14,7 @@ export const CashRealisabilityTiers: React.FC<CashRealisabilityTiersProps> = ({
     {
       code: 'T0',
       title: 'No Paid Element',
-      bottomLabel: 'LOWEST',
+      bottomLabel: 'LOWEST RISK',
       color: '#059669',
       stripeColor: '#10b981',
       bgColor: '#ffffff'
