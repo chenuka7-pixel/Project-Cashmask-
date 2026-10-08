@@ -1,0 +1,162 @@
+:root {
+  /* Cashmask Warm Palette */
+  --bg-page: #fbf8f2;
+  --bg-sidebar: #ffffff;
+  --bg-hero: #0a3528;
+  --bg-hero-gradient: linear-gradient(135deg, #093326 0%, #0c3e30 50%, #082d22 100%);
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f8f5ee;
+  
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.04);
+  
+  --text-dark: #111827;
+  --text-muted: #6b7280;
+  --text-light: #ffffff;
+  --text-hero-subtle: #a7f3d0;
+  
+  --accent-gold: #f59e0b;
+  --accent-gold-bg: #fef3c7;
+  --accent-gold-border: #fde68a;
+  
+  --accent-emerald: #059669;
+  --accent-teal: #0d9488;
+  
+  /* Tiers Colors matching mockup */
+  --tier-t0-dot: #10b981;
+  --tier-t1-dot: #059669;
+  --tier-t2-dot: #eab308;
+  --tier-t3-dot: #f97316;
+  --tier-t4-dot: #ea580c;
+  --tier-t5-dot: #ef4444;
+  --tier-t6-dot: #b91c1c;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  
+  --shadow-card: 0 4px 18px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  --bg-glass: rgba(255, 255, 255, 0.9);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --text-secondary: #4b5563;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-page);
+  color: var(--text-dark);
+  line-height: 1.5;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Cashmask Card utility */
+.cashmask-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* Chat Prompt Chips */
+.chat-chip {
+  background: #fdf6ec;
+  color: #78350f;
+  border: 1px solid #fed7aa;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-block;
+  text-align: left;
+}
+.chat-chip:hover {
+  background: #ffedd5;
+  border-color: #fdba74;
+  transform: translateY(-1px);
+}
+
+/* Search tags in hero */
+.hero-tag {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.775rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.hero-tag:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Tier Card */
+.tier-item-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 16px 12px 14px;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tier-item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.25s ease-out;
+}
