@@ -40,7 +40,8 @@ I can guide you on:
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const isInitialMount = useRef(true);
 
   // Auto-trigger inquiry if launched from game dossier drawer
   useEffect(() => {
@@ -53,7 +54,16 @@ I can guide you on:
   }, [initialProfileQuery]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   }, [messages, loading]);
 
   const handleSend = async (overrideText?: string) => {
@@ -240,14 +250,17 @@ I can guide you on:
         </div>
 
         {/* Chat Message Scroll Window */}
-        <div style={{
-          flex: 1,
-          overflowY: 'auto',
-          padding: '20px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '16px'
-        }}>
+        <div
+          ref={messagesContainerRef}
+          style={{
+            flex: 1,
+            overflowY: 'auto',
+            padding: '20px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '16px'
+          }}
+        >
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -358,7 +371,6 @@ I can guide you on:
             </div>
           )}
 
-          <div ref={messagesEndRef} />
         </div>
 
         {/* Starter Chips Bar */}

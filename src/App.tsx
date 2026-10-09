@@ -39,6 +39,14 @@ export const App: React.FC = () => {
     });
   }, []);
 
+  // Ensure page starts at the top on initial load/refresh and when navigating between views
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, [activeNav]);
+
   const handleSearchTag = (tag: string) => {
     setSearchQuery(tag);
     setActiveNav('Games');

@@ -21,7 +21,8 @@ export const CashmaskAssistant: React.FC<CashmaskAssistantProps> = ({
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const isInitialMount = useRef(true);
 
   const promptChips = [
     'Which games are T6?',
@@ -41,7 +42,16 @@ export const CashmaskAssistant: React.FC<CashmaskAssistantProps> = ({
   }, [initialProfileQuery]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   }, [messages, loading]);
 
   const handleSend = async (overrideText?: string) => {
@@ -162,14 +172,17 @@ export const CashmaskAssistant: React.FC<CashmaskAssistantProps> = ({
       </div>
 
       {/* Messages Scroll Area */}
-      <div style={{
-        flex: 1,
-        overflowY: 'auto',
-        padding: '16px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '12px'
-      }}>
+      <div
+        ref={messagesContainerRef}
+        style={{
+          flex: 1,
+          overflowY: 'auto',
+          padding: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '12px'
+        }}
+      >
         {messages.map((m, idx) => {
           const isUser = m.role === 'user';
           return (
@@ -283,7 +296,6 @@ export const CashmaskAssistant: React.FC<CashmaskAssistantProps> = ({
           </div>
         )}
 
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Input Area */}
