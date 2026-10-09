@@ -317,7 +317,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onPreviewProfile }) => {
         monetaryValue: 'Robux (R$): 1,000 R$ ≈ $12.50 AUD. Developer Exchange (DevEx) allows verified creators to cash out at 50,000 R$ threshold.',
         regulatoryStatus: 'Under ACMA scrutiny; Australian Classification Board 2024 mandates require minimum M rating for paid in-game chance elements.',
         fullDossierText: `### Executive Summary\nRoblox operates a massive dual-sided micro-economy. Players purchase Robux using fiat currency to spend on virtual items, passes, and variable-ratio chance rewards across millions of user-generated experiences.\n\n### Primary Extraction Mechanism\nRobux operates as a closed intermediate currency with high emotional saliency among youths. While Roblox officially prohibits off-site trading, third-party black-market exchanges and offshore gambling rings frequently utilize Robux as wager collateral.\n\n### Socio-Technical Vulnerability\nYoung players face pervasive peer pressure, cosmetic status competitions, and lack cognitive defenses against deceptive game loops.\n\n### Regulatory Assessment\nFalls squarely across the T4 (Token-Mediated Cash-Out) boundary via DevEx, with predatory secondary vectors.`,
-        categoryIds: ['cat-teenager', 'cat-adults', 'cat-mobile', 'cat-gacha'],
+        categoryIds: ['cat-teenager', 'cat-children', 'cat-mobile', 'cat-gacha'],
         citations: [
           { text: 'FTC Consumer Protection Inquiries on Child-Targeted Microtransactions (2024)', sourceType: 'LEGAL_ACT', year: '2024' },
           { text: 'Australian Classification Board Guidelines for Video Games (2024)', sourceType: 'REGULATOR_ACMA', year: '2024' }
@@ -328,7 +328,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onPreviewProfile }) => {
         name: 'Fortnite (Epic Games V-Bucks)',
         representativeTitle: 'Epic Games - Battle Royale & Virtual Cosmetic Ecosystem',
         candidateClass: 'Online Competitive Battle Royale & Metaverse',
-        primaryAudience: 'Teenagers & Young Adults (Ages 12-25)',
+        primaryAudience: 'Children, Teenagers & Young Adults (Ages 10-25)',
         gamblingConnection: 'Direct cosmetic storefront, past random Loot Llamas (settled), current rotating scarcity mechanics with artificial urgency.',
         tierClassification: 'T1: Closed-Loop Direct Purchase',
         tierCode: 'T1',
@@ -341,7 +341,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onPreviewProfile }) => {
         monetaryValue: 'V-Bucks: 1,000 V-Bucks ≈ $11.95 AUD. Strictly closed-loop; no official or developer cash-out route.',
         regulatoryStatus: 'Epic Games settled FTC complaint in 2022 ($520M) regarding accidental child purchases; Loot Llamas discontinued in favor of transparent purchases.',
         fullDossierText: `### Executive Summary\nFortnite retired randomized blind-box Loot Llamas following regulatory pushback, transitioning to a closed-loop direct cosmetic store.\n\n### Primary Extraction Mechanism\nRotating daily item shop, Battle Passes, and licensed intellectual property cosmetics (Marvel, Disney, Anime).\n\n### Socio-Technical Vulnerability\nFear of Missing Out (FOMO) driven by ephemeral cosmetic rotations and playground social hierarchy.\n\n### Regulatory Assessment\nCategorized as T1 (Closed-Loop Direct Purchase) with moderate psychological pressure but zero cash realisability.`,
-        categoryIds: ['cat-teenager', 'cat-fps-games'],
+        categoryIds: ['cat-teenager', 'cat-children', 'cat-fps-games'],
         citations: [
           { text: 'Federal Trade Commission v. Epic Games, Inc., Order Granting Settlement (2022)', sourceType: 'LITIGATION', year: '2022' }
         ]

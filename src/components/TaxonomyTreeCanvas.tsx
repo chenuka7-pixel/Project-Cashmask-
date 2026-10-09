@@ -37,15 +37,15 @@ const SIDEBAR_CATEGORY_FILTERS: Record<string, {
   'audience-age': {
     title: 'Audience / Age Bands',
     badge: 'Demographics',
-    description: 'Targeted demographic cohorts: Teenagers, Old People, and Adults subject to monetization mechanics.',
+    description: 'Targeted demographic cohorts: Teenagers, Old People, Adults, and Children subject to monetization mechanics.',
     upCols: [0, 1, 2],
-    downCols: [],
+    downCols: [5],
     panX: 50
   },
   'game-types': {
     title: 'Game Types & Genres',
     badge: 'Genres',
-    description: 'Game genres: First Person Shooters, Gacha, Mobile, Social Casino, Bingo, Pool, and Online Casinos.',
+    description: 'Game genres: First Person Shooters, Gacha, Mobile, Social Casino, Bingo, Fantasy Sport, and Poker.',
     upCols: [5, 6, 11, 13, 14, 16, 17],
     downCols: [1, 2, 13],
     panX: -550
@@ -53,41 +53,41 @@ const SIDEBAR_CATEGORY_FILTERS: Record<string, {
   'monetary-mechanics': {
     title: 'Monetary Mechanics',
     badge: 'Financial Flow',
-    description: 'Extraction pathways: Microtransactions, Loot Boxes, Skin Gambling, Crypto, and Secondary Trading.',
-    upCols: [12, 13],
-    downCols: [4, 5, 16, 18],
+    description: 'Extraction pathways: Gacha, Loot Boxes, Wheel/Spin, NFTs, Crypto Games, and Secondary Trading.',
+    upCols: [6],
+    downCols: [3, 4, 16, 18],
     panX: -450
   },
   'harm-profile': {
     title: 'Harm Profile & Consequences',
     badge: 'Harm Vectors',
-    description: 'Psychological and social harm outcomes: Depression, Social Isolation, and Financial hardship.',
+    description: 'Psychological and social harm outcomes: Financial Gain cognitive distortions, Social Isolation, Social Media, and Lack of knowledge.',
     upCols: [],
-    downCols: [6, 7, 12, 14],
+    downCols: [6, 7, 11, 12],
     panX: -650
   },
   'who-is-harmed': {
     title: 'Who is Harmed?',
     badge: 'Vulnerability Impact',
-    description: 'High-vulnerability populations: Underage youth, vulnerable seniors, and low-income households.',
+    description: 'High-vulnerability populations: Underage youth, vulnerable seniors, children, low-income households, and rural communities.',
     upCols: [0, 1, 2],
-    downCols: [14, 15],
+    downCols: [5, 14, 15],
     panX: 50
   },
   'regulatory-status': {
     title: 'Regulatory Status',
     badge: 'Compliance & ACMA',
-    description: 'Regulated Australian sportsbooks vs unlicensed offshore gambling sites subject to ACMA ISP blocking.',
+    description: 'Regulated Australian sportsbooks vs unlicensed offshore gambling sites, crypto games, and metaverse platforms.',
     upCols: [7, 8, 9, 10, 12],
-    downCols: [],
+    downCols: [18, 19],
     panX: -850
   },
   'financial-exposure': {
     title: 'Financial Exposure & Wagering',
     badge: 'Wagering Capital',
-    description: 'Distinguishing real-money betting and liquid assets from closed-loop digital entertainment.',
-    upCols: [],
-    downCols: [0, 1, 3, 4, 5],
+    description: 'Real-money betting, accumulators, fantasy sports, horse racing, and liquid wagering capital.',
+    upCols: [3, 4, 15, 18, 19],
+    downCols: [0, 1, 6],
     panX: -350
   }
 };
@@ -247,52 +247,20 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
     };
   };
 
-  // 20 Columns matching WhatsApp blueprint
-  const upBranches = [
-    { name: 'Teenager', games: [] },
-    { name: 'Old People', games: [] },
-    { name: 'Adults', games: [] },
-    { name: 'Football', games: [] },
-    { name: 'Cricket IPL', games: ['Melbet'] },
-    { name: 'First person\nshooting games', games: ['cscase.com'] },
-    { name: 'Gacha', games: [] },
-    { name: 'Sports Betting\nOperators', games: [] },
-    { name: 'In-play/live\nBetting Platform', games: [] },
-    { name: 'Betting\nExchange', games: [] },
-    { name: 'Offshore\nGambling Sites', games: [] },
-    { name: 'Bingo and\nKeno products', games: ['Bingo'] },
-    { name: 'Cruise ship and\nTourist Gambling', games: [] },
-    { name: 'Mobile', games: [] },
-    { name: 'Social Casino\nGames', games: ['Cards', 'Casino', 'Bingo'] },
-    { name: 'Fantasy Sports\nBetting', games: [] },
-    { name: 'Lottery and\nDraw Games', games: [] },
-    { name: 'Instant-Win &\nScratch Games', games: [] },
-    { name: 'Wrestling', games: [] },
-    { name: 'Basketball', games: [] }
-  ];
+  // 20 UP and 20 DOWN Columns matching the official blueprint, dynamically synced with TAXONOMY_CATEGORIES
+  const upBranches = useMemo(() => {
+    return TAXONOMY_CATEGORIES.filter((c) => c.direction === 'UP').map((c) => ({
+      name: c.name,
+      games: c.gamesList
+    }));
+  }, []);
 
-  const downBranches = [
-    { name: 'Horse racing', games: [] },
-    { name: 'Online\nCasinos', games: ['Casino'] },
-    { name: 'Pool and Billiard', games: ['8 Ball Pool'] },
-    { name: 'Esports Betting', games: [] },
-    { name: 'Loot-box\nsystem', games: ['csgoluck.com'] },
-    { name: 'Skin\nGambling', games: ['cscase.com', 'csgoluck.com'] },
-    { name: 'Depression', games: [] },
-    { name: 'Social\nIsolation', games: [] },
-    { name: 'Entertainment', games: [] },
-    { name: 'Excitement', games: [] },
-    { name: 'Curiosity', games: [] },
-    { name: 'Social\nInfluence', games: [] },
-    { name: 'Lack of\nknowledge', games: [] },
-    { name: 'Poker', games: ['Cards'] },
-    { name: 'Low\nincome\nhousehold', games: [] },
-    { name: 'Rural\nCommunities', games: [] },
-    { name: 'NFTS', games: [] },
-    { name: 'Urban\nCommunities', games: [] },
-    { name: 'Crypto\nGames', games: [] },
-    { name: 'Metaverse\nPlatforms', games: [] }
-  ];
+  const downBranches = useMemo(() => {
+    return TAXONOMY_CATEGORIES.filter((c) => c.direction === 'DOWN').map((c) => ({
+      name: c.name,
+      games: c.gamesList
+    }));
+  }, []);
 
   // Visual Theme Variables
   const isLight = theme === 'light';
@@ -924,11 +892,12 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
                   textAlign: 'center',
                   display: 'flex',
                   flexDirection: 'column-reverse',
-                  gap: '4px',
+                  gap: '3px',
                   alignItems: 'center',
-                  maxWidth: '135px'
+                  maxWidth: '145px',
+                  maxHeight: '260px'
                 }}>
-                  {col.games.length > 2 && (
+                  {col.games.length > 5 && (
                     <button
                       type="button"
                       className="interactive-node"
@@ -950,11 +919,11 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
                         marginBottom: '2px'
                       }}
                     >
-                      +{col.games.length - 2} more →
+                      +{col.games.length - 5} more →
                     </button>
                   )}
 
-                  {col.games.slice(0, 2).map((game, gIdx) => {
+                  {col.games.slice(0, 5).map((game, gIdx) => {
                     const researched = getResearchedProfileForGame(game);
                     const isHovered = hoveredGame === game;
                     const matchesSearch = searchTerm && game.toLowerCase().includes(searchTerm.toLowerCase().trim());
@@ -1117,11 +1086,11 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
                   textAlign: 'center',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '4px',
+                  gap: '3px',
                   alignItems: 'center',
-                  maxWidth: '135px'
+                  maxWidth: '145px'
                 }}>
-                  {col.games.slice(0, 2).map((game, gIdx) => {
+                  {col.games.slice(0, 4).map((game, gIdx) => {
                     const researched = getResearchedProfileForGame(game);
                     const isHovered = hoveredGame === game;
                     const matchesSearch = searchTerm && game.toLowerCase().includes(searchTerm.toLowerCase().trim());
@@ -1181,6 +1150,32 @@ export const TaxonomyTreeCanvas: React.FC<TaxonomyTreeCanvasProps> = ({
                       </div>
                     );
                   })}
+
+                  {col.games.length > 4 && (
+                    <button
+                      type="button"
+                      className="interactive-node"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectCategory(getCategoryByName(col.name));
+                      }}
+                      style={{
+                        fontSize: '0.65rem',
+                        fontWeight: 700,
+                        background: isLight ? '#ecfdf5' : '#064e3b',
+                        color: isLight ? '#065f46' : '#6ee7b7',
+                        border: `1px solid ${isLight ? '#a7f3d0' : '#059669'}`,
+                        borderRadius: '10px',
+                        padding: '2px 8px',
+                        cursor: 'pointer',
+                        whiteSpace: 'nowrap',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                        marginTop: '2px'
+                      }}
+                    >
+                      +{col.games.length - 4} more →
+                    </button>
+                  )}
                 </div>
               </div>
             );
