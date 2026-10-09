@@ -103,7 +103,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Teenager',
     direction: 'UP',
     group: 'Demographics',
-    gamesList: ['Fortnite', 'Call Of Duty', 'PUBG Mobile', 'Clash Of Clans', 'League Of Legends', 'Valorant'],
+    gamesList: ['Fortnite', 'Call Of Duty(COD)', 'PUBG Mobile', 'Clash Of Clans (COC)', 'League Of Legends(LOL)', 'Valorant'],
     description: 'Adolescent and youth gamer cohort exposed to skin monetization and predatory loot mechanics.',
     researchedProfileIds: ['G010', 'G034', 'G043']
   },
@@ -130,7 +130,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Football',
     direction: 'UP',
     group: 'Sports & Wagering',
-    gamesList: ['Football pools', 'Accumulator', 'Prop betting'],
+    gamesList: ['Football pools', 'Accumulator bets', 'Prop bets'],
     description: 'Football match wagering, multi-bet accumulators, and player performance prop stakes.',
     researchedProfileIds: ['G046']
   },
@@ -148,7 +148,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'First person shooting games',
     direction: 'UP',
     group: 'Game Genres',
-    gamesList: ['Fortnite', 'Call Of Duty', 'PUBG Mobile'],
+    gamesList: ['Fortnite', 'Call Of Duty(COD)', 'PUBG Mobile'],
     description: 'First-person tactical and battle royale titles with highly active weapon skin economies.',
     researchedProfileIds: ['G010', 'G034']
   },
@@ -157,7 +157,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Gacha',
     direction: 'UP',
     group: 'Mechanics & Genres',
-    gamesList: ['Card pack gacha'],
+    gamesList: ['Card pack gacha', 'Overwatch', 'Apex Legends'],
     description: 'Japanese-style gachapon virtual prize capsules with disclosed or undisclosed probability tables.',
     researchedProfileIds: ['G043']
   },
@@ -220,7 +220,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Mobile',
     direction: 'UP',
     group: 'Platforms',
-    gamesList: ['TAB', 'Bet365', 'Sportsbet'],
+    gamesList: ['TAB - (Totalisator Agency Board)', 'Bet365', 'Sportsbet'],
     description: 'Mobile-first betting apps delivering 24/7 friction-free gambling directly to smartphones.',
     researchedProfileIds: ['G043', 'G044', 'G046']
   },
@@ -238,7 +238,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Fantasy Sports Betting',
     direction: 'UP',
     group: 'Sports & Wagering',
-    gamesList: ['DraftKings', 'FanDuel'],
+    gamesList: ['DraftKings', 'FanDuel', 'Underdog Fantasy'],
     description: 'Daily fantasy contests framed around player statistics with real-money entrance pools.',
     researchedProfileIds: []
   },
@@ -274,7 +274,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Basketball',
     direction: 'UP',
     group: 'Sports & Wagering',
-    gamesList: ['Unibet'],
+    gamesList: ['Unibet', 'Ladbrokes', 'Betfair'],
     description: 'Basketball tournament match and micro-spread wagering.',
     researchedProfileIds: []
   },
@@ -285,7 +285,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Horse racing',
     direction: 'DOWN',
     group: 'Wagering Formats',
-    gamesList: ['Betindiaraces', 'TAB', 'Sportsbet'],
+    gamesList: ['Betindiaraces', 'TAB - (Totalisator Agency Board)', 'Sportsbet'],
     description: 'Traditional thoroughbred and harness racing wagering.',
     researchedProfileIds: []
   },
@@ -357,7 +357,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Entertainment',
     direction: 'DOWN',
     group: 'Drivers & Motivations',
-    gamesList: ['Formula 1', 'G2G', 'Bet365', 'DraftKings'],
+    gamesList: ['Formula 1', 'D2G', 'Bet365', 'DraftKings'],
     description: 'Recreational motivation that obscures the cumulative mathematical loss of continuous play.',
     researchedProfileIds: ['G043']
   },
@@ -380,12 +380,12 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     researchedProfileIds: ['G010']
   },
   {
-    id: 'cat-social-influence',
-    name: 'Social Influence',
+    id: 'cat-social-media',
+    name: 'Social Media',
     direction: 'DOWN',
     group: 'Harm Vectors',
-    gamesList: ['Social Media', 'ElGordo'],
-    description: 'Communal participation, streamer sponsorships, and algorithmic social media betting promotion.',
+    gamesList: ['Instagram', 'YouTube', 'TikTok', 'Facebook'],
+    description: 'Social media platforms, algorithmic recommendation feeds, and influencer livestreams promoting gambling and dark-pattern mechanics.',
     researchedProfileIds: ['G010', 'G034']
   },
   {
@@ -438,7 +438,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Urban Communities',
     direction: 'DOWN',
     group: 'Vulnerable Groups',
-    gamesList: ['Rollbots', 'LootBox'],
+    gamesList: ['Rollboss', 'LootBox'],
     description: 'Tech-fluent urban youth demographics adopting Web3 skin casinos and speculative collectibles.',
     researchedProfileIds: ['G034']
   },
@@ -447,7 +447,7 @@ export const TAXONOMY_CATEGORIES: TaxonomyCategory[] = [
     name: 'Crypto Games',
     direction: 'DOWN',
     group: 'Emerging Tech',
-    gamesList: ['P2E games', 'Myxbet'],
+    gamesList: ['P2E games', 'Mysbet'],
     description: 'Play-to-earn cryptocurrency titles and blockchain wagering platforms.',
     researchedProfileIds: ['G034', 'G046']
   },
